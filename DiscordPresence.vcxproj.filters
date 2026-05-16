@@ -124,4 +124,9 @@
       <UniqueIdentifier>{f45747a3-7578-4023-b8a9-3202522206a2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.md">
+      <Filter>YYTK</Filter>
+    </None>
+  </ItemGroup>
 </Project>
