@@ -28,12 +28,12 @@ DllExport std::string GetPluginName() // For yytk, mandatory
 namespace Misc {
     void Print(std::string s, Color c = CLR_DEFAULT)
     {
-        PrintMessage(c, (gPluginName + ": " + s).c_str());
+        PrintMessage(c, "%s", (gPluginName + ": " + s).c_str());
     }
 
     void PrintDbg(std::string s, std::string func, int line, Color c)
     {
-        PrintMessage(c, (gPluginName + ": " + s + " (" + func + ":" + std::to_string(line) + ")").c_str());
+        PrintMessage(c, "%s", (gPluginName + ": " + s + " (" + func + ":" + std::to_string(line) + ")").c_str());
     }
 
     // checks if a string s contains a substring subs
@@ -85,10 +85,10 @@ namespace Binds {
         for (int i = 0; i < (int)len; i++)
         {
             CallBuiltin(item, "array_get", nullptr, nullptr, { var, (double)i });
-            CallBuiltin(content, "variable_instance_get", nullptr, nullptr, { inst, static_cast<const char*>(item) });
+            CallBuiltin(content, "variable_instance_get", nullptr, nullptr, { inst, item });
             CallBuiltin(type, "typeof", nullptr, nullptr, { content });
-            std::string typestr = std::string(static_cast<const char*>(type));
-            std::string message = std::string(static_cast<const char*>(item)) + " -> " + std::string(static_cast<const char*>(type));
+            std::string typestr = type.operator std::string();
+            std::string message = item.operator std::string() + " -> " + type.operator std::string();
 
             if (typestr == "number")
             {
@@ -100,7 +100,7 @@ namespace Binds {
             }
             else if (typestr == "string")
             {
-                message += " : " + std::string(static_cast<const char*>(content));
+                message += " : " + content.operator std::string();
             }
 
             Misc::Print(message);

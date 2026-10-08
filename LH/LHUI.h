@@ -19,7 +19,7 @@ namespace LHUI
 
 		bool Exists()
 		{
-			return (bool)Binds::CallBuiltinA("instance_exists", { ref }).As<int>();
+			return (bool)Binds::CallBuiltinA("instance_exists", { ref });
 		}
 
 		double GetRef()
