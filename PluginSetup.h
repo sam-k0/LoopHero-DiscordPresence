@@ -14,7 +14,7 @@
 
 HINSTANCE DllHandle; 
 
-static std::string gPluginName = "sam-k0.DiscordPresence.yytk"; // Mandatory name, used to register to core
+static std::string gPluginName = "sam-k0.loophero.discordpresence"; // Mandatory name, used to register to core
 static std::string cfgFilename = Filesys::GetCurrentDir() + "\\options.ini"; // this will use the pre-existing GameMaker created options.ini file
 static std::string SectionName = "DiscordPresence"; // your mod's settings section in the ini file, this can theoretically be the same as gPluginname if you want to
 static std::string KeyName = "AppId"; // one setting to save, make as many as needed
